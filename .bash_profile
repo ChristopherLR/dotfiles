@@ -19,12 +19,6 @@ echo "Executing bash_profile"
 
 #RASPBERRY PI CONFIG
   alias piIP="arp -a | grep 'b8:27:eb:4d:d9:a9' | awk '{ print $2}' | cut -f2 -d '(' | cut -f1 -d ')'"
-#SSH Aliases
-  alias u_server="ssh chris@192.168.1.133"
-  alias d_server="ssh chris@192.168.1.51"
-  alias u_remote="ssh chris@chris.is-very-nice.org"
-  alias iceberg="ssh 44680112@iceberg.science.mq.edu.au"
-  alias ash="ssh 44680112@ash.science.mq.edu.au"
 
 #Shortcuts
   alias exrs="cd ~/development/rust/Exercism/rust"
