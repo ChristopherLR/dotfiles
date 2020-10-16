@@ -5,10 +5,11 @@ echo "Running ZSH"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/chris/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="avit"
 
 plugins=(
 	git
+  zsh-z
 	zsh-autosuggestions
 	iterm2
 	osx
@@ -23,6 +24,8 @@ plugins=(
 	nvm
 	npm
 	nmap
+	gradle-completion
+	vi-mode
 )
 
 #ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -40,7 +43,13 @@ source $ZSH/oh-my-zsh.sh
    export EDITOR='nvim'
  fi
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim="nvim"
+alias vrc="nvim ~/.vimrc"
+alias zrc="nvim ~/.zshrc"
+alias webrs="cd ~/development/rust/web/web-rs/"
+
 alias config='/usr/bin/git --git-dir=/Users/chris/.cfg/ --work-tree=/Users/chris'
+
+export PATH="$PATH:/usr/local/bin/"
+export PATH="$PATH:/Users/chris/development/emsdk/node/12.9.1_64bit/bin:/Users/chris/development/emsdk/upstream/emscripten:/Users/chris/development/emsdk:/Users/chris/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Library/Apple/bin:/Library/TeX/texbin:/opt/X11/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/usr/local/bin/:/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin"
+
