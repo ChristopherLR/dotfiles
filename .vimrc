@@ -54,6 +54,7 @@ Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plugin 'jparise/vim-graphql'
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Searching Stuff
 Plugin 'airblade/vim-rooter'
@@ -65,7 +66,7 @@ Plugin 'uiiaoo/java-syntax.vim'
 Plugin 'tfnico/vim-gradle'
 
 " Python Stuff
-Plugin 'kiteco/vim-plugin'
+" Plugin 'kiteco/vim-plugin'
 
 " Rust Stuff
 " Plugin 'rust-lang/rls'
@@ -129,17 +130,17 @@ set shortmess+=c
 lua <<EOF
 
 -- nvim_lsp object
-local nvim_lsp = require'nvim_lsp'
+local nvim_lsp = require'lspconfig'
 
 -- function to attach completion and diagnostics
 -- when setting up lsp
 local on_attach = function(client)
     require'completion'.on_attach(client)
-    require'diagnostic'.on_attach(client)
 end
 
 -- Enable rust_analyzer
 nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
+nvim_lsp.tsserver.setup{}
 
 EOF
 
@@ -152,8 +153,8 @@ let g:diagnostic_insert_delay = 1
 " Set updatetime for CursorHold
 " 300ms of no cursor movement to trigger CursorHold
 set updatetime=300
-" Show diagnostic popup on cursor hold
-autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+" Show diagnostic popup on cursor hold DEPRICATED
+" autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
 
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
@@ -191,7 +192,7 @@ set hidden
 let g:rustfmt_command = "rustfmt +nightly"
 let g:rustfmt_autosave = 0
 
-let g:kite_supported_languages = ['python', 'go']
+" let g:kite_supported_languages = ['python', 'go']
 let g:vim_markdown_folding_disabled = 1
 
 " Mappings
